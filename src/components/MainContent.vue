@@ -1,11 +1,11 @@
 <template>
     <div class="container">
         <div class="row gap-3">
-            <div class="card col-5" style="width: 18rem;" v-for="(card,i) in cardList" :key="i">
+            <div class="card col-2" v-for="(card,i) in cardList" :key="i">
                 <img 
                     :src="card.poster" 
                     class="card-img-top" 
-                    alt="...">
+                    :alt="card.author">
                 <div class="card-body">
                     <h5 class="card-title">
                         {{card.title}}
@@ -53,4 +53,28 @@ export default {
 * {
     font-family: $main-font-family;
 }
+
+.container {
+    .row {
+        .card {
+            background-color: $card-bg-color;
+            color: white;
+            text-align: center;
+            img {
+                padding: 10px;
+            }
+            .card-title {
+                font-weight: bold;
+                text-transform: uppercase;
+                font-size: 1.05rem;
+            }
+            .card-text {
+                color: grey;
+                padding-top: 10px;
+            }
+        }
+                
+    }
+}
+
 </style>

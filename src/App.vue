@@ -19,5 +19,10 @@ export default {
 </script>
 
 <style lang="scss">
+@import './styles/variables.scss';
 
+body {
+  background-color: $main-bg-color;
+}
+  
 </style>
