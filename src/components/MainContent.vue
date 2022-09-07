@@ -7,10 +7,15 @@
                     class="card-img-top" 
                     alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">{{cardList.title}}</h5>
-                    <p class="card-text">{{card.author}}</p>
-
+                    <h5 class="card-title">
+                        {{card.title}}
+                    </h5>
+                    <p class="card-text">
+                        {{card.author}} <br>
+                        {{card.year}}
+                    </p>
                 </div>
+
             </div>
         </div>
 
@@ -18,7 +23,6 @@
 
     </div>
 </template>
-
 <script>
 import axios from "axios"
 
@@ -34,7 +38,7 @@ export default {
             .get('https://flynn.boolean.careers/exercises/api/array/music')
             .then((res) => {
                 console.log(res.data)
-                this.cardList = res.data
+                this.cardList = res.data.response
             })
             .finally(() => {
                 console.log(this.cardList)
