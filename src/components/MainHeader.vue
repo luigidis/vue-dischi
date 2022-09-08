@@ -8,7 +8,7 @@
     </select>
     <div class="mt-2">
       <label for="artist">Choose an artist:</label>
-      <select name="artist" id="artist" class="ms-2" v-model="selectedArtist">
+      <select name="artist" id="artist" class="ms-2" v-model="selectedArtist" @change="$emit('selectArtist',selectedArtist)">
         <option v-for="(artist,i) in artists" :value="artist" :key="i">
           {{ artist }}
         </option>

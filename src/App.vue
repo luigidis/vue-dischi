@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <MainHeader @select="onSelect" />
-    <MainContent :selected="optionSel" />
+    <MainHeader @select="onSelect" @selectArtist="onArtist"/>
+    <MainContent :selected="optionSel" :selectedArtist="selectedArtist" />
   </div>
 </template>
 
@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       optionSel: '',
+      selectedArtist: '',
     }
   },
   components: {
@@ -25,7 +26,11 @@ export default {
       console.log('Passo l\' info', genre)
       this.optionSel = genre
     }
-  }
+  },
+    onArtist(artist) {
+      console.log('Passo l\' info', artist)
+      this.selectedArtist = artist
+    }
 }
 
 </script>

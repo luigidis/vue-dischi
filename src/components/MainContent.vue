@@ -29,7 +29,11 @@ export default {
         selected: {
             type: String,
             default: '',
-        }
+        },
+        selectedArtist: {
+            type: String,
+            default: '',
+        },
     },
     data() {
         return {
@@ -41,8 +45,10 @@ export default {
             return this.cardList.filter((el) => {
                 const genre = el.genre.toLowerCase()
                 const find = this.selected.toLowerCase()
+                const artist = el.author.toLowerCase()
+                const artistSel = this.selectedArtist.toLowerCase()
 
-                if (genre.includes(find)) {
+                if (genre.includes(find) || artist.includes(artistSel)) {
                     return true
                 }
 
