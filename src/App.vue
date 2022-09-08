@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <MainHeader/>
-    <MainContent/>
+    <MainHeader />
+    <MainContent />
   </div>
 </template>
 
@@ -21,8 +21,9 @@ export default {
 <style lang="scss">
 @import './styles/variables.scss';
 
-body {
-  background-color: $main-bg-color;
+html {
+  body {
+    background-color: $main-bg-color;
+  }
 }
-  
 </style>
