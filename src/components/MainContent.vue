@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row gap-3">
-            <div class="card col-2" v-for="(card,i) in cardList" :key="i">
+            <div class="card col-2" v-for="(card,i) in filteredTracks" :key="i">
                 <img 
                     :src="card.poster" 
                     class="card-img-top" 
@@ -30,7 +30,22 @@ export default {
     name: 'MainContent',
     data() {
         return {
-            cardList: []
+            cardList: [],
+            selected: 'Rock'
+        }
+    },
+    computed: {
+        filteredTracks() {
+            return this.cardList.filter((el) =>{
+                const genre = el.genre.toLowerCase()
+                const find = this.selected.toLowerCase()
+                
+                if(genre.includes(find)) {
+                    return true
+                }
+
+                return false
+            })
         }
     },
     created() {
