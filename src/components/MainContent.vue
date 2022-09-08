@@ -2,10 +2,7 @@
     <div class="container">
         <div class="row gap-3">
             <div class="card col-2" v-for="(card,i) in filteredTracks" :key="i">
-                <img 
-                    :src="card.poster" 
-                    class="card-img-top" 
-                    :alt="card.author">
+                <img :src="card.poster" class="card-img-top" :alt="card.author">
                 <div class="card-body">
                     <h5 class="card-title">
                         {{card.title}}
@@ -28,19 +25,24 @@ import axios from "axios"
 
 export default {
     name: 'MainContent',
+    props: {
+        selected: {
+            type: String,
+            default: '',
+        }
+    },
     data() {
         return {
             cardList: [],
-            selected: 'Rock'
         }
     },
     computed: {
         filteredTracks() {
-            return this.cardList.filter((el) =>{
+            return this.cardList.filter((el) => {
                 const genre = el.genre.toLowerCase()
                 const find = this.selected.toLowerCase()
-                
-                if(genre.includes(find)) {
+
+                if (genre.includes(find)) {
                     return true
                 }
 
@@ -60,6 +62,7 @@ export default {
             })
     }
 }
+
 </script>
 
 <style lang="scss" scoped>
@@ -75,21 +78,23 @@ export default {
             background-color: $card-bg-color;
             color: white;
             text-align: center;
+
             img {
                 padding: 10px;
             }
+
             .card-title {
                 font-weight: bold;
                 text-transform: uppercase;
                 font-size: 1.05rem;
             }
+
             .card-text {
                 color: grey;
                 padding-top: 10px;
             }
         }
-                
+
     }
 }
-
 </style>
