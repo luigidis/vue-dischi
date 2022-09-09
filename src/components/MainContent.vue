@@ -47,15 +47,15 @@ export default {
                 const find = this.selected.toLowerCase()
                 const artist = el.author.toLowerCase()
                 const artistSel = this.selectedArtist.toLowerCase()
-
-                if (genre.includes(find) || artist.includes(artistSel)) {
+                if (genre.includes(find) && artist.includes(artistSel)) {
                     return true
                 }
-
                 return false
             })
         }
     },
+
+
     created() {
         axios
             .get('https://flynn.boolean.careers/exercises/api/array/music')

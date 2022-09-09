@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <MainHeader @select="onSelect" @selectArtist="onArtist"/>
+    <MainHeader @select="onSelect" @selectArtist="onArtist" />
     <MainContent :selected="optionSel" :selectedArtist="selectedArtist" />
   </div>
 </template>
+
+
 
 <script>
 import MainHeader from './components/MainHeader.vue';
@@ -25,13 +27,14 @@ export default {
     onSelect(genre) {
       console.log('Passo l\' info', genre)
       this.optionSel = genre
-    }
-  },
+    },
     onArtist(artist) {
       console.log('Passo l\' info', artist)
       this.selectedArtist = artist
     }
+  }
 }
+
 
 </script>
 
